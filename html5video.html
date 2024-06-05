@@ -1,14 +1,16 @@
-<!DOCTYPE html> 
-<html> 
-<!DOCTYPE html> 
-<html> 
+<!DOCTYPE html>
+<html>
 <body style="margin:0; padding:0; overflow:hidden">
 
-<video id="myVideo" style="position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); width:100%; height:auto;" controls muted autoplay playsinline>
-  <source src="https://webdemo.dac.co.jp/adformat/ivt/test/vast/video/fruitsbear-640x360-15s.mp4" type="video/mp4">
-  Your browser does not support HTML video.
-</video>
-<button id="fullscreenButton" style="position:fixed; top:50%; left:50%; transform: translate(-50%, -50%); font-size:50px;">Fullscreen</button>
+<div style="position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); width:100%; height:100%;">
+  <video id="myVideo" style="position:absolute; width:100%; height:100%;" controls muted autoplay playsinline>
+    <source src="https://webdemo.dac.co.jp/adformat/ivt/test/vast/video/fruitsbear-640x360-15s.mp4" type="video/mp4">
+    Your browser does not support HTML video.
+  </video>
+
+  <img id="muteButton" src="https://cdn-icons-png.freepik.com/512/189/189653.png" style="position:absolute; left:3px; bottom:3px; width:24px; height:24px;">
+  <img id="fullscreenButton" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJrWpYW8278j5cNcw_A6BwMiS2StgWLdVVZw&s" style="position:absolute; right:3px; bottom:3px; width:24px; height:24px;">
+</div>
 
 <script>
 document.getElementById('fullscreenButton').addEventListener('click', function() {
@@ -23,14 +25,12 @@ document.getElementById('fullscreenButton').addEventListener('click', function()
     video.msRequestFullscreen();
   }
 });
+
+document.getElementById('muteButton').addEventListener('click', function() {
+  var video = document.getElementById('myVideo');
+  video.muted = !video.muted;
+});
 </script>
-</body> 
-</html>
 
-<p>
-Video courtesy of 
-<a href="https://www.bigbuckbunny.org/" target="_blank">Big Buck Bunny</a>.
-</p>
-
-</body> 
+</body>
 </html>
