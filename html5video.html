@@ -23,6 +23,8 @@ document.getElementById('fullscreenButton').addEventListener('click', function()
     video.webkitRequestFullscreen();
   } else if (video.msRequestFullscreen) { // IE/Edge
     video.msRequestFullscreen();
+  } else if (video.webkitEnterFullScreen) { // Safari
+    video.webkitEnterFullScreen();
   }
 });
 
