@@ -8,7 +8,22 @@
   <source src="https://webdemo.dac.co.jp/adformat/ivt/test/vast/video/fruitsbear-640x360-15s.mp4" type="video/mp4">
   Your browser does not support HTML video.
 </video>
+<button id="fullscreenButton" style="position:fixed; top:50%; left:50%; transform: translate(-50%, -50%); font-size:50px;">Fullscreen</button>
 
+<script>
+document.getElementById('fullscreenButton').addEventListener('click', function() {
+  var video = document.getElementById('myVideo');
+  if (video.requestFullscreen) {
+    video.requestFullscreen();
+  } else if (video.mozRequestFullScreen) { // Firefox
+    video.mozRequestFullScreen();
+  } else if (video.webkitRequestFullscreen) { // Chrome, Safari and Opera
+    video.webkitRequestFullscreen();
+  } else if (video.msRequestFullscreen) { // IE/Edge
+    video.msRequestFullscreen();
+  }
+});
+</script>
 </body> 
 </html>
 
