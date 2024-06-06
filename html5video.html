@@ -39,6 +39,12 @@ fullscreenButton.addEventListener("click", function() {
 closeButton.addEventListener("click", function() {
   video.style.display = "none";
 });
+
+document.addEventListener('fullscreenchange', function() {
+  if (!document.fullscreenElement) {
+    video.play();
+  }
+});
 </script>
 
 </body>
