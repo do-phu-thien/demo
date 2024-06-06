@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html>
 <body style="margin:0; padding:0; overflow:hidden">
-<lable>Test Video 1</lable>
+<lable>Video test 2</lable>
 <div id="videoContainer" style="position: relative; width: 100%; height: 100vh;">
-  <video id="myVideo" style="position: relative; width: 100%; height: 100%;" autoplay muted playsinline>
+  <video id="myVideo" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" autoplay muted playsinline>
     <source src="https://webdemo.dac.co.jp/adformat/ivt/test/vast/video/fruitsbear-640x360-15s.mp4" type="video/mp4">
   </video>
 
-  <img id="volumeButton" src="https://cdn-icons-png.freepik.com/512/189/189653.png" style="position: absolute; bottom: 10px; left: 10px; width: 30px; height: 30px; cursor: pointer;">
-  <img id="fullscreenButton" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJrWpYW8278j5cNcw_A6BwMiS2StgWLdVVZw&s" style="position: absolute; bottom: 10px; right: 10px; width: 30px; height: 30px; cursor: pointer;">
-  <img id="closeButton" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlXPo6_suawf5W6FdqqY-aaiBpt2axrG58jQ&s" style="position: absolute; top: 10px; right: 10px; width: 30px; height: 30px; cursor: pointer;">
+  <div id="buttonsContainer" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+    <img id="volumeButton" src="https://cdn-icons-png.freepik.com/512/189/189653.png" style="position: absolute; bottom: 10px; left: 10px; width: 30px; height: 30px; cursor: pointer;">
+    <img id="fullscreenButton" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJrWpYW8278j5cNcw_A6BwMiS2StgWLdVVZw&s" style="position: absolute; bottom: 10px; right: 10px; width: 30px; height: 30px; cursor: pointer;">
+    <img id="closeButton" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlXPo6_suawf5W6FdqqY-aaiBpt2axrG58jQ&s" style="position: absolute; top: 10px; right: 10px; width: 30px; height: 30px; cursor: pointer;">
+  </div>
 </div>
 
 <script>
@@ -18,6 +20,7 @@ var volumeButton = document.getElementById("volumeButton");
 var fullscreenButton = document.getElementById("fullscreenButton");
 var closeButton = document.getElementById("closeButton");
 var videoContainer = document.getElementById("videoContainer");
+var buttonsContainer = document.getElementById("buttonsContainer");
 
 volumeButton.addEventListener("click", function() {
   video.muted = !video.muted;
@@ -37,6 +40,11 @@ fullscreenButton.addEventListener("click", function() {
 
 closeButton.addEventListener("click", function() {
   videoContainer.style.display = "none";
+});
+
+window.addEventListener('resize', function() {
+  buttonsContainer.style.width = video.offsetWidth + "px";
+  buttonsContainer.style.height = video.offsetHeight + "px";
 });
 </script>
 
